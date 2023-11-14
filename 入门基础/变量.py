@@ -1,3 +1,5 @@
+# 列表 删除 remove删除指定的值  pop（index）删除坐标
+
 age = 18
 def my_func():
    name = "wc"

@@ -10,6 +10,7 @@ list2[2] = 4 #1,2,4
 # 删
 del list2[2]#删除下标为2的元素
 list2.remove(1)#删除1这个元素 此时仅仅剩下一个元素咯[2]
+list2.pop(0) # 删除仅剩的一个元素 pop（index）
 # 增
 list2.append(7)# 在后面扩充append 2
 list2.insert(2,1)# 在下标为2的位置 插入1
