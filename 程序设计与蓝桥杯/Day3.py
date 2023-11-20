@@ -5,7 +5,6 @@
 # 第一行包括一个整数N和一个字符C，N表示参与选拔的同学人数，C表示选择的竞赛类型。
 # 输出说明：
 # 适合指定竞赛类型的学生学号。如果有多个符合条件的学生，按学号从小到大分行输出学号，每行一个。
-#
 # 输入样例：
 # 8  I
 # 2101001 90 90 85 90 80 80
@@ -19,16 +18,21 @@
 # 输出样例：语文、数学、物理、化学、政治、历史
 # 2101003
 
-class student():
-    def __init__(self,xh,yw,sx,wl,hx,zz,ls):
-        self.xh = xh
-        self.yw = yw
-        self.sx = sx
-        self.wl = wl
-        self.hx = hx
-        self.zz = zz
-        self.ls = ls
-
-
-
-m,n = input().split('  ')
+N, C= map(str,input().split()) # 输入n个数 与类别
+N = int(N)
+listGrades = []  #存数据
+for i in range(N):
+    tmp = input()
+    listGrades.append((tmp.split()[0], tmp.split()[1], tmp.split()[2], tmp.split()[3], tmp.split()[4], tmp.split()[5], tmp.split()[6]))
+    # [('2101001', '90', '90', '85', '90', '80', '80')] append 是这样一个元组
+pointList = []
+for i in listGrades:
+    if C == "B":
+        pointList.append((i[0],int(i[2])+int(i[4]))) # 如果为B 则将全部存入结果pointList，倒序，输出第一个则所最大的
+    elif C == "I":
+        pointList.append((i[0],int(i[1])+int(i[2])))
+    elif C == "H":
+        pointList.append((i[0],int(i[5])+int(i[6])))
+pointList.sort(key=lambda x:x[1],reverse=True)
+for i in pointList:
+    print(i[0], end='  ')
